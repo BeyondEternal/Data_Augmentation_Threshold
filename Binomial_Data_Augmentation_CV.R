@@ -11,17 +11,18 @@ datasets <- c("Disease_AL", "EYT_1_AL", "EYT_2_AL", "EYT_3_AL", "Groundnut_AL",
               "Wheat_2_AL", "Wheat_3_AL", "Wheat_4_AL", "Wheat_5_AL", 
               "Wheat_6_AL")
 for(dataset in datasets){
+  load(sprintf("data/%s.RData", dataset), verbose = TRUE)
   ls()
   Pheno=Pheno
   Geno=Geno
   head(Pheno)
-  Traits_to_evaluate=colnames(Pheno)[c(4)]
+  Traits_to_evaluate=colnames(Pheno)[2:((ncol(Pheno)+1)/2)]
   Traits_to_evaluate
   ToP_Selection=20
   # Variables definitions ---------------------------------------------------------
   #######Model to be implemented
   model_name <- "BGBLUP"
-  Name_data_set="EYT_1_AL"
+  Name_data_set=dataset
   Version=1
   
   ########Folds and iterations to use 
