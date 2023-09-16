@@ -70,7 +70,7 @@ for(dataset in datasets){
      Diff=as.numeric(Diff)
      return(Diff)
   }
-  Pheno$Env="EYT_1"
+  Pheno$Env=dataset
   head(Pheno)
   Envs_to_Evaluate=unique(Pheno$Env)
   All_envs_Val_Hyperparams=data.frame()
