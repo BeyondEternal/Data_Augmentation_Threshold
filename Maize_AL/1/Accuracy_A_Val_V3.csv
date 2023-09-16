@@ -1,0 +1,6 @@
+"","Model","Trait","Accuracy","Kappa","Sensitivity","Specificity","F1"
+"Accuracy","Ordinal","Y",0.2,0,1,0,0.333333333333333
+"Accuracy1","Ordinal","Y",0.201388888888889,0,1,0,0.335260115606936
+"Accuracy2","Ordinal","Y",0.201388888888889,0,1,0,0.335260115606936
+"Accuracy3","Ordinal","Y",0.201388888888889,0,1,0,0.335260115606936
+"Accuracy4","Ordinal","Y",0.2,0,1,0,0.333333333333333
