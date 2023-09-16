@@ -1,0 +1,6 @@
+"","Model","Trait","Accuracy","Kappa","Sensitivity","Specificity","F1"
+"Accuracy","Ordinal","PHR",0.2,0,1,0,0.333333333333333
+"Accuracy1","Ordinal","PHR",0.203125,0,1,0,0.337662337662338
+"Accuracy2","Ordinal","PHR",0.19047619047619,0,1,0,0.32
+"Accuracy3","Ordinal","PHR",0.203125,0,1,0,0.337662337662338
+"Accuracy4","Ordinal","PHR",0.203125,0,1,0,0.337662337662338
