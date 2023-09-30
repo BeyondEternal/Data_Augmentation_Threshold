@@ -80,6 +80,8 @@ for(dataset in datasets){
   ALL_envs_Accuracy_D_Tst=data.frame()
   ALL_envs_Accuracy_Tst=data.frame()
   Predictions_all_envs=data.frame()
+  Summary_final=data.frame()
+  Predictions_final=data.frame()
   #for (env in Envs_to_Evaluate) {
      env=Envs_to_Evaluate[1]
      SKM::echo("*** Env: %s ***", env)
@@ -121,6 +123,8 @@ for(dataset in datasets){
      Accuracy_C_Tst=data.frame()
      Accuracy_D_Tst=data.frame()
      Predictions=data.frame()
+     Predictions=data.frame()
+     Accuracy_A_Val=data.frame()
      Accuracy_A_Val=data.frame()
     for (i in seq_along(folds)) {
     #   i=1
@@ -223,13 +227,14 @@ for(dataset in datasets){
       
            )
         )
-        Predictions
+        Summary_final=rbind(Summary_final, Accuracy_A_Val)
+        Predictions_final=rbind(Predictions_final, Predictions)
      }
   }
   results_dir <- file.path(results_dir)
   SKM::mkdir(results_dir)
-  write.csv(Accuracy_A_Val,file=file.path(results_dir,"Accuracy_Data_Augmentation_OT.csv"))
-  write.csv(Predictions,file=file.path(results_dir,"ALL_Predictions_Data_Augmentation_OT.csv"))
+  write.csv(Summary_final,file=file.path(results_dir,"Accuracy_Data_Augmentation_OT.csv"))
+  write.csv(Predictions_final,file=file.path(results_dir,"ALL_Predictions_Data_Augmentation_OT.csv"))
 }
 
 
