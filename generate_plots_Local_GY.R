@@ -6,7 +6,7 @@ library(ggplot2)
 #setwd("~/data_science/argentina")
 
 source("utils.r")
-file_path <- "Results_ALL.xlsx"
+file_path <- "mean_All.xlsx"
 
 # Define the name of the columns in the sheets that refers to the traits
 traits_columns <- c("summary")
@@ -20,17 +20,18 @@ results1
 colnames(results1)
 digits=4
 results11 <-results1 %>%
-  group_by(Dataset, Trait, Method) %>%
+  group_by(Dataset, Trait, Model) %>%
   summarise(
-    NRMSE = mean(NRMSE),
-    MAAPE =mean(MAAPE),
-    NRMSE_80 = mean(NRMSE_80),
-    MAAPE_80 =mean(MAAPE_80),
+    Accuracy = mean(Accuracy),
+    Kappa =mean(Kappa),
+    Sensitivity = mean(Sensitivity),
+    Specificity =mean(Specificity),
+    F1 = mean(F1)
     )
 #%>%
  # ungroup() %>%
-#  mutate(Dataset = dataset, Method =Method) %>%
-#  relocate(Dataset = dataset, Method =Method, .before = 1) 
+#  mutate(Dataset = dataset, Model =Model) %>%
+#  relocate(Dataset = dataset, Model =Model, .before = 1) 
 
 results11
 colnames(results11)
@@ -42,7 +43,7 @@ for (data in Data_set){
  results=results11[results11$Dataset==data, ]
   results=droplevels(results)
   
-metrics <- c( "NRMSE",    "MAAPE",   "NRMSE_80",   "MAAPE_80")
+metrics <- c( "Accuracy",    "Kappa",   "Sensitivity",   "Specificity", "F1")
 #metrics <- c(metrics, paste0(metrics, "a"))
 metrics 
 
@@ -56,7 +57,7 @@ for (metric in metrics) {
   cat(metric, "\n")
   plot <- ggplot(
     results,
-    aes_string(x = "Trait", y = metric, fill = "Method")
+    aes_string(x = "Trait", y = metric, fill = "Model")
   ) +
     geom_bar(stat = "identity", position = "dodge") 
     # facet_wrap(~Model) +
